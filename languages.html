@@ -1,0 +1,203 @@
+<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+	.svg {
+		background-color: #555;
+	}
+</style>
+
+<body>
+<!-- External stuff -->
+<script src="d3.min.js"></script>
+<script src="graph2.js"></script>
+
+<svg id="svg"></svg>
+
+<div class="jumbotron">
+	<div id="information" class="container"></div>
+</div>
+
+<!-- info box -->
+<script>
+	var render = ( node )=> {
+		let txt = "<p>"
+		+ `<span class="name">` + node.name + `</span> `
+		+ `<span class="date">(` + node.date + `)</span></p>`;
+
+		return txt
+	}
+
+	var report = ( node )=> {
+		document.getElementById( "information" ).innerHTML = render( node )
+	}
+</script>
+
+<!-- graph -->
+<script>
+
+// CANVAS
+var width = 1000;
+var height = 500;
+
+var svg = d3.select( '#svg' )
+	.attr( 'width', width )
+	.attr( 'height', height )
+	.attr( 'class', 'svg' )
+
+var viewSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+var viewLevel = 0
+
+function click( node ){
+	svg.selectAll( '*' ).remove()
+
+	if( viewLevel === 0 ){
+		graph = filterLane( graphAll, [ node.tags.lane ])
+		viewLevel = 1
+	} else {
+		graph = filterLane( graphAll, viewSet )
+		viewLevel = 0
+	}
+
+	draw( graph )
+}
+
+var graph = filterLane( graphAll, viewSet )
+
+
+function draw( graph ){
+	// LAYOUT (via force-based physics simulation, yikes!)
+	var simulation = d3.forceSimulation( graph.nodes )
+		.force( "link", d3.forceLink()
+			.id( d => { return d })
+			.links( graph.links )
+			.strength( 0.01 ))
+		.force( "charge", d3.forceManyBody() )
+		.force( "collision", d3.forceCollide().radius( 25 ))
+		.force( 'x', d3.forceX().x( d => timeline( d )))
+		.force( 'y', d3.forceY().y( d => lane( d )))
+		.on( "tick", ticked );
+
+	// X axis
+	function timeline( d ){
+		let range = graph.years.max - graph.years.min
+		let position = d.date - graph.years.min
+		return 50 + ( position / range ) * ( width - 100 )
+	}
+
+	// Y axis
+	function lane( d ){
+		let range = graph.lanes.length + 2
+		let position = graph.lanes.indexOf( d.tags.lane ) + 1
+		return 50 + ( position / range ) * ( height - 100 )
+	}
+
+	// CONTAINER
+	var container = svg.append( 'g' );
+
+	svg.call(
+		d3.zoom()
+			.scaleExtent([ .1, 2 ])
+			.on( "zoom", ()=> {
+				container.attr( "transform", d3.event.transform)
+			})
+	)
+
+	// LINK
+	var links = container.append( 'g' ).attr( 'class', 'links' )
+		.selectAll( 'line' )
+		.data( graph.links )
+		.enter()
+		.append( 'line' )
+			.attr( 'stroke', '#333' )
+
+	function updateLink( link ){
+		link.attr( "x1", ( d )=>{ return d.source.x; })
+			.attr( "y1", ( d )=>{ return d.source.y; })
+			.attr( "x2", ( d )=>{ return d.target.x; })
+			.attr( "y2", ( d )=>{ return d.target.y; });
+	}
+
+	// NODE
+	// build
+	var nodes = container.append( 'g' ).attr( 'class', 'nodes' )
+		.selectAll( 'circle' )
+		.data( graph.nodes )
+		.enter()
+		.append( 'ellipse' )
+			.attr( 'rx', ovalWidth )
+			.attr( 'ry', 20 )
+			.attr( 'fill', palette )
+			.attr( 'stroke', 'black' )
+
+	// mouse
+	nodes.on( 'mouseover', focus ).on( 'mouseout', unfocus )
+	nodes.on( 'click', click )
+
+	// render
+	function updateNode( node ){
+		node.attr( "transform", d => {
+			return "translate(" + d.x + "," + d.y + ")";
+		})
+	}
+
+	function focus( node ){
+		report( node )
+		d3.select( event.currentTarget )
+			.attr( "rx", ovalWidth( node ) + 10 )
+			.attr( "ry", 30 )
+	}
+
+	function unfocus( node ){
+		d3.select( event.currentTarget )
+			.attr( "rx", ovalWidth )
+			.attr( "ry", 20 )
+	}
+
+	function palette( node ){
+		let color = '#aaa'
+		if( 'tags' in node ){
+			color = node.tags.color
+		}
+		return color
+	}
+
+	function ovalWidth( node ){
+		return 20 + ( node.name.length * 2 )
+	}
+
+	// LABEL
+	var labels = container.append( 'g' ).attr( 'class', 'label' )
+		.selectAll( 'node' )
+		.data( graph.nodes )
+		.enter()
+		.append( 'text' )
+			.text( d => { return d.name })
+			.style( 'fill', 'white' )
+			.style( 'text-shadow', '1px 1px 2px black' )
+			.style( 'font-family', 'Arial' )
+			.style( 'font-size', 10 )
+			.style( 'font-style', 'bold' )
+			.style( 'text-anchor', 'middle' )
+			.style( 'pointer-events', 'none' )
+
+	function updateLabel( label ){
+		label.attr( "transform", d => {
+			return "translate(" + d.x + "," + d.y + ")";
+		})
+	}
+
+	// TICKS
+	function ticked() {
+		links.call( updateLink );
+		nodes.call( updateNode );
+		labels.call( updateLabel );
+	}
+}
+
+draw( graph )
+
+</script>
+</body>
+
+
