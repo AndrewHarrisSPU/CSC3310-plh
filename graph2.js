@@ -384,29 +384,34 @@ exlusive) support in certain scientific domains, particularly data visualization
 	"name": "Rust",
 	"date": 2010,
 	"tags": STYLE.special,
-},
-
-	Pl1 = {
+},	Pl1 = {
 	"name": "PL/1",
-	"date": 1964
+	"date": 1964,
+	"tags": STYLE.special,	
 },	Plm = {
 	"name": "PL/M",
-	"date": 1973
+	"date": 1973,
+	"tags": STYLE.special,	
 },	Snobol = {
 	"name": "SNOBOL",
 	"date": 1962,
+	"tags": STYLE.special,	
 },	Icon = {
 	"name": "Icon",
-	"date": 1977
+	"date": 1977,
+	"tags": STYLE.special,	
 },	Forth = {
 	"name": "Forth",
-	"date": 1970
+	"date": 1970,
+	"tags": STYLE.special,
 },	Basic = {
 	"name": "BASIC",
-	"date": 1964
-},	VisualBasic = {
+	"date": 1964,
+	"tags": STYLE.special,	
+},	Visualbasic = {
 	"name": "VB",
-	"date": 1991
+	"date": 1991,
+	"tags": STYLE.special,	
 }
 
 var graphAll = {
@@ -443,7 +448,7 @@ var graphAll = {
 	Awk, Sh, Csh, Ksh, Bash,
 
 	// other
-	Apl, Logo, Postscript, Tcl, Go, Rust,
+	Apl, Logo, Postscript, Tcl, Go, Rust, Pl1, Plm, Snobol, Icon, Forth, Basic, Visualbasic,
 
 	// Theory
 	Lambda, Info, TypedLambda, Qsort, CurryHoward, SystemF,	
