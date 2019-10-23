@@ -4,6 +4,27 @@
 <style>
 	.svg {
 		background-color: #555;
+		display: inline-block;
+		margin: auto;
+		text-align: center;
+	}
+
+	span.info {
+		font-style: normal;
+		font-size: 12px;
+	}
+
+	p {
+		margin-bottom: .5rem;
+	}
+
+	#chart {
+		padding: 20px;
+	}
+
+	#infotron {
+		padding: 20px;
+		line-height: 1.2rem;
 	}
 </style>
 
@@ -11,25 +32,56 @@
 <!-- External stuff -->
 <script src="d3.min.js"></script>
 <script src="graph2.js"></script>
+<script src="imperative.js"></script>
+<script src="structured.js"></script>
+<script src="lisp.js"></script>
+<script src="logical.js"></script>
+<script src="oop.js"></script>
+<script src="other.js"></script>
+<script src="graph.js"></script>
 
-<svg id="svg"></svg>
-
-<div class="jumbotron">
-	<div id="information" class="container"></div>
+<div id="chart" class="container">
+	<svg id="svg"></svg>
 </div>
+
+<div id="infotron" class="container"></div>
 
 <!-- info box -->
 <script>
 	var render = ( node )=> {
-		let txt = "<p>"
-		+ `<span class="name">` + node.name + `</span> `
-		+ `<span class="date">(` + node.date + `)</span></p>`;
+		let txt = `<p style="text-align: center">`
+
+		// name, date
+		+ `<span style="font-size: 24px">` + node.name + `</span>`
+//		+ `<span style="font-size: 15px"> (` + node.date + `)</span>`
+		+ `</p><p style="text-align: center">`
+
+		// date, developers, organization, web page
+		+ `<span class="info" style="font-size: 11px;">`
+		+ node.date
+		+ ` | ` + node.dev
+		+ ` | ` + node.org
+		+ ` | <a href=` + node.www + `>www</a>`
+		+ `</p><p>`		
+
+		// characteristics and contributions
+		+ `<span style="font-size: 8px;">(characteristics) `
+		+ `<span style="font-size: 11px;">` + node.characteristics + `</span>`
+		+ `</p><p>`
+
+		+ `<span style="font-size: 8px;">(contributions) `
+		+ `<span style="font-size: 11px;">` + node.contributions + `</span> `
+		+ `</p><p>`
+
+		+ `<span style="font-size: 8px;">(comments) `
+		+ `<span style="font-size: 11px;">` + node.comments + `</span>`
+		+ "</p>";
 
 		return txt
 	}
 
 	var report = ( node )=> {
-		document.getElementById( "information" ).innerHTML = render( node )
+		document.getElementById( "infotron" ).innerHTML = render( node )
 	}
 </script>
 
@@ -45,15 +97,26 @@ var svg = d3.select( '#svg' )
 	.attr( 'height', height )
 	.attr( 'class', 'svg' )
 
+
+// CONTAINER
 var viewSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 var viewLevel = 0
 
+// GRAPH
+var graph = filterLane( graphAll, viewSet )
+
+
+
 function click( node ){
+	d3.event.stopPropagation()	
 	svg.selectAll( '*' ).remove()
 
 	if( viewLevel === 0 ){
-		graph = filterLane( graphAll, [ node.tags.lane ])
+		graph = filterLane( graphAll, [ node.tags.lane ])		
 		viewLevel = 1
+	} else if( viewLevel === 1 ){
+		graph = filterNode( graph, node )
+		viewLevel = 2
 	} else {
 		graph = filterLane( graphAll, viewSet )
 		viewLevel = 0
@@ -62,18 +125,40 @@ function click( node ){
 	draw( graph )
 }
 
-var graph = filterLane( graphAll, viewSet )
-
-
 function draw( graph ){
+	svg.append( 'rect' )
+		.attr( 'class', 'overlay' )
+		.attr( 'fill', '#222' )
+		.attr( 'width', width )
+		.attr( 'height', height )
+		.on( 'click', ()=> {
+			console.log( "here" )
+			graph = filterLane( graphAll, viewSet )
+			viewLevel = 0
+			draw( graph )
+		})
+
+	var container = svg.append( 'g' );
+
+/*	svg.call(
+		d3.zoom()
+			.scaleExtent([ .1, 2 ])
+			.on( "zoom", ()=> {
+				container.attr( "transform", d3.event.transform )
+			})
+	)
+*/
 	// LAYOUT (via force-based physics simulation, yikes!)
+	if( viewLevel === 1 ){ repulsion = 75 }
+	else { repulsion = 30 }
+
 	var simulation = d3.forceSimulation( graph.nodes )
 		.force( "link", d3.forceLink()
 			.id( d => { return d })
 			.links( graph.links )
 			.strength( 0.01 ))
 		.force( "charge", d3.forceManyBody() )
-		.force( "collision", d3.forceCollide().radius( 25 ))
+		.force( "collision", d3.forceCollide().radius( repulsion ))
 		.force( 'x', d3.forceX().x( d => timeline( d )))
 		.force( 'y', d3.forceY().y( d => lane( d )))
 		.on( "tick", ticked );
@@ -92,16 +177,6 @@ function draw( graph ){
 		return 50 + ( position / range ) * ( height - 100 )
 	}
 
-	// CONTAINER
-	var container = svg.append( 'g' );
-
-	svg.call(
-		d3.zoom()
-			.scaleExtent([ .1, 2 ])
-			.on( "zoom", ()=> {
-				container.attr( "transform", d3.event.transform)
-			})
-	)
 
 	// LINK
 	var links = container.append( 'g' ).attr( 'class', 'links' )
@@ -131,7 +206,8 @@ function draw( graph ){
 			.attr( 'stroke', 'black' )
 
 	// mouse
-	nodes.on( 'mouseover', focus ).on( 'mouseout', unfocus )
+	nodes.on( 'mouseover', focus )
+	nodes.on( 'mouseout', unfocus )
 	nodes.on( 'click', click )
 
 	// render
@@ -146,19 +222,28 @@ function draw( graph ){
 		d3.select( event.currentTarget )
 			.attr( "rx", ovalWidth( node ) + 10 )
 			.attr( "ry", 30 )
+			.attr( 'stroke', 'gray' )
 	}
 
 	function unfocus( node ){
 		d3.select( event.currentTarget )
 			.attr( "rx", ovalWidth )
 			.attr( "ry", 20 )
+			.attr( 'stroke', 'black' )
 	}
 
-	function palette( node ){
+	function palette( node, graph ){
 		let color = '#aaa'
 		if( 'tags' in node ){
 			color = node.tags.color
 		}
+
+		for( active in graph.active ){
+			if( node == active ){
+				node.attr( 'fill', '#fff' )
+			}
+		}
+
 		return color
 	}
 
