@@ -1,7 +1,14 @@
 <meta charset="utf-8">
+<!--
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-->
 
 <style>
+	* {
+		font-family: sans-serif;
+		font-size: 14;
+	}
+
 	.svg {
 		background-color: #555;
 		display: inline-block;
@@ -26,6 +33,16 @@
 		padding: 20px;
 		line-height: 1.2rem;
 	}
+
+	.axis path{
+	  stroke: #444;
+	}
+
+	.axis text{
+		font-size: 14;
+		fill: #fff;
+	}	
+	}
 </style>
 
 <body>
@@ -36,8 +53,12 @@
 <script src="structured.js"></script>
 <script src="lisp.js"></script>
 <script src="logical.js"></script>
+<script src="coop.js"></script>
 <script src="oop.js"></script>
 <script src="other.js"></script>
+<script src="unix.js"></script>
+<script src="dynamic.js"></script>
+<script src="ml.js"></script>
 <script src="graph.js"></script>
 
 <div id="chart" class="container">
@@ -53,7 +74,6 @@
 
 		// name, date
 		+ `<span style="font-size: 24px">` + node.name + `</span>`
-//		+ `<span style="font-size: 15px"> (` + node.date + `)</span>`
 		+ `</p><p style="text-align: center">`
 
 		// date, developers, organization, web page
@@ -92,11 +112,11 @@
 var width = 1000;
 var height = 500;
 
+
 var svg = d3.select( '#svg' )
 	.attr( 'width', width )
 	.attr( 'height', height )
 	.attr( 'class', 'svg' )
-
 
 // CONTAINER
 var viewSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -104,8 +124,6 @@ var viewLevel = 0
 
 // GRAPH
 var graph = filterLane( graphAll, viewSet )
-
-
 
 function click( node ){
 	d3.event.stopPropagation()	
@@ -126,28 +144,40 @@ function click( node ){
 }
 
 function draw( graph ){
+
+	// BACKGROUND
 	svg.append( 'rect' )
 		.attr( 'class', 'overlay' )
 		.attr( 'fill', '#222' )
 		.attr( 'width', width )
 		.attr( 'height', height )
 		.on( 'click', ()=> {
-			console.log( "here" )
 			graph = filterLane( graphAll, viewSet )
 			viewLevel = 0
 			draw( graph )
 		})
 
-	var container = svg.append( 'g' );
+	var container = svg
+		.append( 'g' )
+		.attr( 'width', width - 500 )
+		.attr( 'height', height - 200 )
 
-/*	svg.call(
-		d3.zoom()
-			.scaleExtent([ .1, 2 ])
-			.on( "zoom", ()=> {
-				container.attr( "transform", d3.event.transform )
-			})
-	)
-*/
+	// Zooming
+	var zoom = d3.zoom().on("zoom", zoomed).scaleExtent([1 / 2, 8]);
+
+	function zoomed() {
+		container.attr("transform", d3.event.transform); // updated for d3 v4
+	}
+
+	svg.call( d3.zoom()
+				.on( "zoom", ()=> {
+					let x = ( width / 2 ) * .1
+					let y = ( height / 2 ) * .1
+					let k = .9
+					container.attr( "transform", `translate(${x}, ${y})scale(${k})` )
+				}))
+		.call( zoom.transform, d3.zoomIdentity.translate( ( width / 2 ) * .1, ( height / 2 ) * .1 ).scale( .9 ))
+
 	// LAYOUT (via force-based physics simulation, yikes!)
 	if( viewLevel === 1 ){ repulsion = 75 }
 	else { repulsion = 30 }
@@ -164,6 +194,18 @@ function draw( graph ){
 		.on( "tick", ticked );
 
 	// X axis
+	var x = d3.scaleTime()
+		.domain([
+			new Date( graph.years.min, 0, 1 ),
+			new Date( graph.years.max, 0, 1 )])
+		.range([ 0, width ])
+	var xAsix = container.append( 'g' )
+		.attr( 'class', 'axis' )
+		.attr( 'transform',
+				'translate(0,' + height + ')')
+		.call( d3
+			.axisBottom( x ))
+
 	function timeline( d ){
 		let range = graph.years.max - graph.years.min
 		let position = d.date - graph.years.min
@@ -174,9 +216,8 @@ function draw( graph ){
 	function lane( d ){
 		let range = graph.lanes.length + 2
 		let position = graph.lanes.indexOf( d.tags.lane ) + 1
-		return 50 + ( position / range ) * ( height - 100 )
+		return 50 + ( position / range ) * ( height - 50 )
 	}
-
 
 	// LINK
 	var links = container.append( 'g' ).attr( 'class', 'links' )
@@ -184,7 +225,7 @@ function draw( graph ){
 		.data( graph.links )
 		.enter()
 		.append( 'line' )
-			.attr( 'stroke', '#333' )
+			.attr( 'stroke', '#444' )
 
 	function updateLink( link ){
 		link.attr( "x1", ( d )=>{ return d.source.x; })
@@ -274,9 +315,9 @@ function draw( graph ){
 
 	// TICKS
 	function ticked() {
-		links.call( updateLink );
 		nodes.call( updateNode );
 		labels.call( updateLabel );
+		links.call( updateLink );
 	}
 }
 

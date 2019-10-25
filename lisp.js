@@ -1,7 +1,7 @@
 	// Lisps
 var	Lisp = {
 	"name": "Lisp",
-	"date": 1968,
+	"date": 1958,
 	"dev": "John McCarthy",
 	"org": "MIT",
 	"www": "",
@@ -77,4 +77,20 @@ R = {
 `Statistics computing, visualization, pubishing`,
 	"comments":
 `Aspects of R's syntax and feel match Lisp quite closely. Many compromises are made to provide something more performant in an interpreted environment. Has strong (but not exlusive) support in certain scientific domains, particularly data visualization.`
+},
+
+Logo = {
+	"name": "Logo",
+	"date": 1967,
+	"tags": STYLE.functional,
+	"dev": "Wally Feurzeig, Seymour Papert, Cynthia Solomon",
+	"org": "Bolt, Baranek and Newman",
+	"www": "https://el.media.mit.edu/logo-foundation/what_is_logo/logo_programming.html",
+
+	"characteristics":
+`Educational programming language. Commands center around moving and altering a graphical cursor (typically a turtle). Dynamically typed, imperative`,
+	"contributions":
+`Many variations of logo have been built, mainly for educational purposes. Also, logo influenced the development of Smalltalk.`,
+	"comments":
+`Logo commands are typically used to direct the movement of a robot that’s connected to the program.`
 }

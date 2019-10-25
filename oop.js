@@ -17,11 +17,28 @@ var Simula = {
 Smalltalk = {
 	"name": "Smalltalk",
 	"date": 1972,
-	"tags": STYLE.oop
+	"tags": STYLE.oop,
+	"dev": "Alan Kay",
+	"org": "Xerox",
+	"www": "https://www.instantiations.com/products/vasmalltalk/",
+
+	"characteristics":
+`Smalltalk is composed entirely of objects. These objects send messages to other objects, triggering a response of some sort. Syntax is unusual, due to the use of messages rather than arithmetic logic expressions and control statements.`,
+	"contributions":
+`Smalltalk was the first language with full support for object oriented programming. This is a major impact, since most popular languages and design frameworks are based on object oriented principles. It was also the first language designed with the intention of working with graphical user interfaces built for non-programmers. The model-view-controller pattern was made for smalltalk.`,
+	"comments":
+`Was built with the intention of being used for programming personal computers, which did not exist at the time.`	
 },
 
 Eiffel = {
 	"name": "Eiffel",
 	"date": 1986,
-	"tags": STYLE.oop
+	"tags": STYLE.oop,
+
+	"characteristics":
+``,
+	"contributions":
+``,
+	"comments":
+``
 }

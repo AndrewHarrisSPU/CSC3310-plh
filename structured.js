@@ -87,4 +87,36 @@ Pl1 = {
 `Broke some ground as a mainframe computing langauge`,
 	"comments":
 `PL/1 was not a failure, but it had limitations. Due to the complexity of its specification, it was difficult to implement. While initially designed to be machine independent, over time it became mostly associated with IBM mainframes. Other vendors elected to stay with older languages or move to newer languages.`	
+},
+
+
+Modula = {
+	"name": "Modula",
+	"date": 1975,
+	"tags": STYLE.structured,
+	"dev": "(n/a)",
+	"org": "Swiss Federal Institute of Technology",
+	"www": "https://www.modula2.org/tutor/introduction.php",
+
+	"characteristics":
+`Modula programs are divided into modules, which are separately compiled and have limited access to each other. This allows for safeguarding against unwanted access and also helps with readability. It allows direct hardware access and some simple synchronization.`,
+	"contributions":
+`Used in embedded systems frequently.`,
+	"comments":
+`Modula was almost immediately replaced by Modula-2; most of the details on here are specifically Modula-2 features.`
+},
+
+Plm = {
+	"name": "PL/M",
+	"date": 1973,
+	"tags": STYLE.structured,
+	"org": "Intel",
+	"www": "http://www.cpm.z80.de/randyfiles/plm/9800466-03revC_PLM86_Feb82.pdf",
+
+	"characteristics":
+`PL/M programs run on microcomputers. As such, there are no standard input/output procedures; instead, programs used input and output ports connected to the computer, and could directly access locations in memory.`,
+	"contributions":
+`First high level language for microprocessors.`,
+	"comments":
+`Some PL/M compilers were native, meaning they ran on the same system that used the microprocessor, but others were not.`
 }

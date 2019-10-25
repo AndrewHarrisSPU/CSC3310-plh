@@ -32,14 +32,14 @@ var graphAll = {
 	Awk, Sh, Csh, Ksh, Bash,
 
 	// other
-	Apl, Logo, Postscript, Tcl, Go, Rust, Pl1, Plm, Snobol, Icon, Forth, Basic, Visualbasic,
+	Erlang, Apl, Logo, Postscript, Tcl, Go, Rust, Pl1, Plm, Snobol, Icon, Forth, Basic, Visualbasic,
 
 	// Theory
 //	Lambda, Info, TypedLambda, Qsort, CurryHoward, SystemF,	
 
 	// Tech
-	VonNeumann, Disk, Solid, Mouse, Micro, Unix, Tcp,
-	Pacman, Mac, Www, Quake, Y2k, Iphone, AlphaZero,
+//	VonNeumann, Disk, Solid, Mouse, Micro, Unix, Tcp,
+//	Pacman, Mac, Www, Quake, Y2k, Iphone, AlphaZero,
 
 	],
 	"links": [
@@ -128,7 +128,7 @@ function filterNode( graph, node ){
 	}
 
 	res.nodes.push( node )
-/*
+
 	// ancestry
 	for( link of graph.links ){
 		if( link.target === node ){
@@ -160,7 +160,7 @@ function filterNode( graph, node ){
 
 	// sort lanes ...
 	res.lanes.sort(( a, b )=> { return a - b })
-*/
+
 	return res
 }
 
@@ -181,7 +181,6 @@ function filterLane( graph, lanes ){
 	for( node of graph.nodes ){
 		for( lane of lanes ){
 			if( !( 'tags' in node )){
-				console.log( node )
 				return res
 			}
 			if( lane == node.tags.lane ){
