@@ -35,13 +35,16 @@ Scala = {
 	"name": "Scala",
 	"date": 2004,
 	"tags": STYLE.ml,
+	"dev": "Martin Odersky",
+	"org": "École Polytechnique Fédérale de Lausanne",
+	"www": "https://www.scala-lang.org",
 
 	"characteristics":
-``,
+`Inferential typing, JVM`,
 	"contributions":
-``,
+`Scala demonstrates that more things are possible on the JVM that Java.`,
 	"comments":
-``
+`Scala brings functional and type-inferential sytles to the JVM.`
 
 },	Haskell = {
 	"name": "Haskell",
