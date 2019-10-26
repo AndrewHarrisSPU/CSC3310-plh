@@ -1,4 +1,9 @@
 const STYLE = Object.freeze({
+	concurrent: {
+		lane: 0,
+		label: "Concurrent",
+		color: "#e7ff36"
+	},	
 	logical: {
 		lane: 1,
 		label: "logical",
@@ -19,39 +24,34 @@ const STYLE = Object.freeze({
 		label: "dynamic",
 		color: "#ad81ff"
 	},
-	imperative: {
+	other: {
 		lane: 5,
+		label: "other",
+		color: "#6c498f"
+	},
+	imperative: {
+		lane: 6,
 		label: "imperative",
 		color: "#f92439"
 	},
 	coop: {
-		lane: 6,
+		lane: 7,
 		label: "C -> object oriented",
 		color: "#f92673"
 	},
 	structured: {
-		lane: 7,
+		lane: 8,
 		label: "structured",
 		color: "#f94f24"
 	},
 	oop: {
-		lane: 8,
+		lane: 9,
 		label: "object oriented",
 		color: "#fd971f"
 	},
 	unixTools: {
-		lane: 9,
-		label: "Unix-flavored",
-		color: "#e6db74"
-	},
-	special: {
 		lane: 10,
-		label: "special",
-		color: "#a8a"
-	},
-	tech: {
-		lane: 11,
-		label: "tech/theory",
-		color: "#444"
+		label: "Unix-flavored",
+		color: "#edd100"
 	}
 });

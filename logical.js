@@ -5,6 +5,7 @@ var	Prolog = {
 	"dev": "Alain Colmerauer, Robert Kowalski, Philippe Roussel",
 	"org": "Aix-Marseille University",
 	"tags": STYLE.logical,
+	"www": "http://www.gprolog.org",
 
 	"characteristics":
 `Logical, term-based`,
@@ -18,6 +19,7 @@ Datalog = {
 	"name": "Datalog",
 	"date": "1977",
 	"dev": "Hervé Gallaire, Jack Minker",
+	"org": "(n/a)",
 	"tags": STYLE.logical,
 	"www": "https://en.wikipedia.org/wiki/Datalog",
 
@@ -27,7 +29,7 @@ Datalog = {
 `Established the notion of a declarative language for querying databases`,
 	"comments":
 `A subset of Prolog, Datalog is a little more flexibly written but not Turing complete. Deduction from extensional facts and intensional rules lines up with notions of predicate, first-order logic, making the language quite reasonable to reason about.`
-}
+},
 
 Sql = {
 	"name": "SQL",

@@ -1,4 +1,20 @@
-var Algol = {
+var Apl = {
+	"name": "APL",
+	"date": 1966,
+	"dev": "Kenneth E. Iverson",
+	"org": "IBM",
+	"www": "https://aplwiki.com/FrontPage",
+	"tags": STYLE.structured,
+
+	"characteristics":
+`Functional, Array-based`,
+	"contributions":
+`A graphics-oriented dialect was used for the film Tron`,
+	"comments":
+`APL is conceptually simple. All data are arrays. Unary operators apply to all right-side elements, while binary operators apply to the nearest left element and all post-reduction right-side elements. What part of "Primes←(2=+⌿0=(⍳N)∘.|⍳N)/⍳N" doesn't make sense?`
+},
+
+Algol = {
 	"name": "Algol",
 	"date": 1958,
 	"dev": "(by committee)",
@@ -94,6 +110,7 @@ Icon = {
 	"date": 1977,
 	"tags": STYLE.structured,
 	"dev": "Ralph Griswold",
+	"org": "(n/a)",
 	"www": "https://www2.cs.arizona.edu/icon/",
 
 	"characteristics":
@@ -124,6 +141,7 @@ Plm = {
 	"name": "PL/M",
 	"date": 1973,
 	"tags": STYLE.structured,
+	"dev": "(n/a)",
 	"org": "Intel",
 	"www": "http://www.cpm.z80.de/randyfiles/plm/9800466-03revC_PLM86_Feb82.pdf",
 

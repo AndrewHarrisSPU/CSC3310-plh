@@ -51,7 +51,7 @@ Go = {
 	"tags": STYLE.oop,
 
 	"characteristics":
-`Multi-paraidigm`,
+`Multi-paradigm`,
 	"contributions":
 `Brought average compile times for a cabal of ex-Bell Labs Googlers (including Ken Thompson) below the time of a coffee break`,
 	"comments":

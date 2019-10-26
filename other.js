@@ -1,40 +1,8 @@
 // other
-var Apl = {
-	"name": "APL",
-	"date": 1966,
-	"dev": "Kenneth E. Iverson",
-	"org": "IBM",
-	"www": "https://aplwiki.com/FrontPage",
-	"tags": STYLE.special,
-
-	"characteristics":
-`Functional, Array-based`,
-	"contributions":
-`A graphics-oriented dialect was used for the film Tron`,
-	"comments":
-`APL is conceptually simple. All data are arrays. Unary operators apply to all right-side elements, while binary operators apply to the nearest left element and all post-reduction right-side elements. What part of "Primes←(2=+⌿0=(⍳N)∘.|⍳N)/⍳N" doesn't make sense?`
-},
-
-Erlang = {
-	"name": "Erlang",
-	"date": 1986,
-	"dev": "Joe Armstrong, Robert Virding, Mike Williams",
-	"org": "Ericsson",
-	"www": "https://www.erlang.org",
-	"tags": STYLE.special,
-
-	"characteristics":
-`Functional, concurrent`,
-	"contributions":
-`BEAM virtual machine`,
-	"comments":
-`Erlang embraces message passing and immutable data as a means of isolating components in complex, concurrent systems. Erlang processes that only interact by asynchronous communication have nice properties in distributed architectures.`
-},
-
-Postscript = {
+var Postscript = {
 	"name": "PS",
 	"date": 1982,
-	"tags": STYLE.special,
+	"tags": STYLE.other,
 	"org": "Adobe",
 	"www": "https://www-cdf.fnal.gov/offline/PostScript/BLUEBOOK.PDF",
 
@@ -46,8 +14,24 @@ Postscript = {
 `Because of its complexity, PostScript was expensive to include in a printer, leading to its decline in popularity.`
 },
 
+Tex = {
+	"name": "TeX",
+	"date": 1978,
+	"dev": "Donald Knuth",
+	"org": "",
+	"www": "http://tug.org/",
+	"tags": STYLE.other,
+
+	"characteristics":
+`Markup`,
+	"contributions":
+`Turing-complete typesetting`,
+	"comments":
+`Version numbers asymptotically approach π. Offers robust typesetting, notably for mathematical formulae. If you find an error in TeX, you may be in line for a <a href="https://en.wikipedia.org/wiki/Knuth_reward_check">reward</a>`
+},
+
 Visualbasic = {
 	"name": "VB",
 	"date": 1991,
-	"tags": STYLE.special,	
+	"tags": STYLE.other,	
 }

@@ -31,20 +31,13 @@ var graphAll = {
 	// unix tools
 	Awk, Sh, Csh, Ksh, Bash,
 
-	// other
-	Erlang, Apl, Logo, Postscript, Tcl, Go, Rust, Pl1, Plm, Snobol, Icon, Forth, Basic, Visualbasic,
-
-	// Theory
-//	Lambda, Info, TypedLambda,
-//	Qsort, CurryHoward, SystemF,	
-
-	// Tech
-//	VonNeumann, Disk, Solid, Mouse, Micro, Unix, Tcp,
-//	Pacman, Mac, Www, Quake, Y2k, Iphone, AlphaZero,
+	// etc
+	Erlang, Apl, Logo, Postscript, Tcl, Go, Rust, Pl1, Plm, Snobol, Icon, Forth, Basic, Visualbasic, Tex, Elixir,
 
 	],
 	"links": [
 		// imperatives
+		{ "source": Flowmatic, "target": Cobol },		
 		{ "source": Fortran, "target": Algol },
 		{ "source": Algol, "target": C },
 		{ "source": Algol, "target": Pascal },
@@ -79,9 +72,6 @@ var graphAll = {
 		{ "source": Lisp, "target": Commonlisp },
 		{ "source": Commonlisp, "target": R },		
 		{ "source": Scheme, "target": Racket },
-		{ "source": Lisp, "target": Erlang },
-		{ "source": Prolog, "target": Erlang },
-		{ "source": Smalltalk, "target": Erlang },
 		{ "source": Lisp, "target": Julia },
 		{ "source": Lisp, "target": Forth },
 		{ "source": Apl, "target": Forth },
@@ -100,13 +90,16 @@ var graphAll = {
 		{ "source": Sh, "target": Ksh },
 		{ "source": Sh, "target": Bash },
 		{ "source": Awk, "target": Perl },
+		{ "source": Awk, "target": Tcl },
+		{ "source": Pascal, "target": Tex },
+		{ "source": Tex, "target": Postscript },
 
-		// Beyond 
+		// Beyond C
 		{ "source": Simula, "target": Cpp },
 		{ "source": C, "target": Cpp },
-		{ "source": C, "target": Csharp },
+		{ "source": Cpp, "target": Csharp },
 		{ "source": C, "target": ObjectiveC },
-		{ "source": C, "target": Java },
+		{ "source": Cpp, "target": Java },
 		{ "source": Cpp, "target": Rust },
 
 		// Dynamic
@@ -122,9 +115,12 @@ var graphAll = {
 		{ "source": Cobol, "target": Sql },
 		{ "source": Prolog, "target": Datalog },
 
-		{ "source": Flowmatic, "target": Cobol },
-
-		{ "source": Awk, "target": Tcl },
+		// Concurrent
+		{ "source": Lisp, "target": Erlang },
+		{ "source": Prolog, "target": Erlang },
+		{ "source": Smalltalk, "target": Erlang },		
+		{ "source": Erlang, "target": Elixir },
+		{ "source": Ruby, "target": Elixir },
 	]
 }
 
