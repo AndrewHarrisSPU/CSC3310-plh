@@ -11,7 +11,7 @@ var Apl = {
 	"contributions":
 `A graphics-oriented dialect was used for the film Tron`,
 	"comments":
-`APL is conceptually simple. All data are arrays. Unary operators apply to all right-side elements, while binary operators apply to the nearest left element and all post-reduction right-side elements. What part of "Primes←(2=+⌿0=(⍳N)∘.|⍳N)/⍳N" doesn't make sense?`
+`APL is conceptually simple. All data are arrays. Unary operators scope to all right-side elements, while binary operators scope to the nearest left element and all right-side elements. What part of "Primes←(2=+⌿0=(⍳N)∘.|⍳N)/⍳N" doesn't make sense?`
 },
 
 Algol = {
@@ -73,9 +73,9 @@ C = {
 	"characteristics":
 `Structured`,
 	"contributions":
-`C is a (maybe _the_) big kahuna`,
+`C is kind of a big deal`,
 	"comments":
-`C started out as a successor to B, improved in numerous ways. Notably (but not exclusively), C has primitive types, structs, and pointers. The enormous success of C perhaps follows from two things. First, C was a vital to Unix. Second, if a language is something greater than the sum of its parts, C's parts came together in a way that the sum turns out to be productive, satisfying, and long-lasting.`
+`C started out as a successor to B, improved in numerous ways. Some examples: C has primitive types, structs, and pointers. The enormous success of C perhaps follows from two things. First, C was vital to Unix. Second, if a language is something greater than the sum of its parts, C's parts came together in a way that the sum turns out to be productive, satisfying, and long-lasting. Especially if you like pointers.`
 },
 
 Pascal = {

@@ -157,7 +157,7 @@ function draw( graph ){
 		.attr( 'height', height )
 
 	// LAYOUT (via force-based physics simulation, yikes!)
-	var repulsion = 22
+	var repulsion = 23
 
 	var simulation = d3.forceSimulation( graph.nodes )
 		.force( "link", d3.forceLink()
@@ -268,7 +268,7 @@ function draw( graph ){
 	}
 
 	function ovalWidth( node ){
-		return 26
+		return 28
 	}
 
 	// LABEL
@@ -291,6 +291,8 @@ function draw( graph ){
 			return "translate(" + d.x + "," + ( d.y + 3 ) + ")";
 		})
 	}
+
+
 
 	// TICKS
 	function ticked() {

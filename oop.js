@@ -57,7 +57,7 @@ Go = {
 	"contributions":
 `Brought average compile times for a cabal of ex-Bell Labs Googlers (including Ken Thompson) below the time of a coffee break`,
 	"comments":
-`In the minds of some critics, Go eschews decades of programming language research. In the minds of enthusiasts, it ignores bad ideas from decades of programming language research. For example, it drops inheretance in favor of interfaces, which can seem like a step back or step forward (it probably does work out better with respect to the Liskov Substition Principle, or the Robustness Principle). It is perhaps a well-executed language and ecosystem, more than a novel one.`
+`In the minds of some critics, Go eschews decades of programming language research. In the minds of enthusiasts, it ignores bad ideas from decades of programming language research. For example, it drops inheretance in favor of interfaces, which can seem like a step back or step forward (it probably does work out better with respect to the Liskov Substition Principle, or the Robustness Principle). It is perhaps an unusually well-executed language and ecosystem, more than a completely novel one.`
 },
 
 Rust = {
@@ -73,5 +73,5 @@ Rust = {
 	"contributions":
 `Borrow checker`,
 	"comments":
-`Unlike many other buzz-worthy recent languages, Rust does aspire to the performance of C or C++, while still being safer. This plays out in interesting ways. There is ostensibly no garbage collector, but optional reference counting is often used. A system of ownership and borrow checking tracks the (im)mutability of references, which makes some classes of bugs compile-time errors, but also makes some things difficult. Doubly linked lists, for example, are not easy because two links implies mean two mutable references.`
+`Unlike many other buzz-worthy recent languages, Rust does aspire to the performance of C or C++, while still being safer. This plays out in interesting ways. There is ostensibly no garbage collector, but optional reference counting is often used. A system of ownership and borrow checking tracks the (im)mutability of references, which makes some classes of bugs compile-time errors, but also makes some things difficult. Doubly linked lists, for example, are not easy because 'doubly linked' implies mean two mutation-capable references to list nodes.`
 }
