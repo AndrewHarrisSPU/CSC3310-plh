@@ -137,7 +137,6 @@ function click( node ){
 }
 
 function draw( graph ){
-
 	// BACKGROUND
 	svg.append( 'rect' )
 		.attr( 'class', 'overlay' )
@@ -176,13 +175,14 @@ function draw( graph ){
 		.domain([
 			new Date( graph.years.min, 0, 1 ),
 			new Date( graph.years.max, 0, 1 )])
-		.range([ 100, width - 110 ])
+		.nice()
+		.range([ 100, width - 100 ])
 	var xAxis = container.append( 'g' )
 		.attr( 'class', 'axis' )
 		.attr( 'transform',
 				'translate(0,' + ( height - 30 )  + ')')
 		.call( d3
-			.axisBottom( x ))
+			.axisBottom( x ).ticks( 3 ))
 
 	// positions nodes on the x axis
 	function timeline( d ){
@@ -291,8 +291,6 @@ function draw( graph ){
 			return "translate(" + d.x + "," + ( d.y + 3 ) + ")";
 		})
 	}
-
-
 
 	// TICKS
 	function ticked() {

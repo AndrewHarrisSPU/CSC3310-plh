@@ -2,7 +2,7 @@ const STYLE = Object.freeze({
 	concurrent: {
 		lane: 0,
 		label: "Concurrent",
-		color: "#e7ff36"
+		color: "#7dad1c"
 	},	
 	logical: {
 		lane: 1,
