@@ -11,7 +11,7 @@ var graphAll = {
 	Fortran, Algol, Pascal, Modula,
 
 	// Logical
-	Prolog, Sql,
+	Prolog, Sql, Datalog,
 
 	// Business
 	Flowmatic, Cobol, Ipl, Rpg,
@@ -35,7 +35,8 @@ var graphAll = {
 	Erlang, Apl, Logo, Postscript, Tcl, Go, Rust, Pl1, Plm, Snobol, Icon, Forth, Basic, Visualbasic,
 
 	// Theory
-//	Lambda, Info, TypedLambda, Qsort, CurryHoward, SystemF,	
+//	Lambda, Info, TypedLambda,
+//	Qsort, CurryHoward, SystemF,	
 
 	// Tech
 //	VonNeumann, Disk, Solid, Mouse, Micro, Unix, Tcp,
@@ -50,6 +51,9 @@ var graphAll = {
 		{ "source": Pascal, "target": Modula },
 		{ "source": Modula, "target": Python },
 		{ "source": Pascal, "target": Ada },
+		{ "source": Algol, "target": Basic },
+		{ "source": Fortran, "target": Basic },
+		{ "source": Pl1, "target": Plm },
 
 		// ML
 		{ "source": Pascal, "target": Ml },
@@ -58,8 +62,10 @@ var graphAll = {
 		{ "source": Sml, "target": Caml },
 		{ "source": Sml, "target": Haskell },
 		{ "source": Sml, "target": Scala },
+		{ "source": Ml, "target": Rust },
+		{ "source": Java, "target": Scala },
 
-		// Objects
+		// Oops
 		{ "source": Algol, "target": Simula },
 		{ "source": Simula, "target": Smalltalk },
 		{ "source": Smalltalk, "target": Ruby },
@@ -76,31 +82,36 @@ var graphAll = {
 		{ "source": Lisp, "target": Erlang },
 		{ "source": Prolog, "target": Erlang },
 		{ "source": Smalltalk, "target": Erlang },
+		{ "source": Lisp, "target": Julia },
+		{ "source": Lisp, "target": Forth },
+		{ "source": Apl, "target": Forth },
+		{ "source": Lisp, "target": Postscript },
 
 		// Towards C
 		{ "source": Bcpl, "target": B },
 		{ "source": B, "target": C },
-
 		{ "source": Ada, "target": Eiffel },
 		{ "source": Simula, "target": Eiffel },
 
 		// Unix tools
 		{ "source": C, "target": Awk },
+		{ "source": C, "target": Sh },
 		{ "source": Sh, "target": Csh },
 		{ "source": Sh, "target": Ksh },
 		{ "source": Sh, "target": Bash },
 		{ "source": Awk, "target": Perl },
 
-		// Beyond C
+		// Beyond 
+		{ "source": Simula, "target": Cpp },
 		{ "source": C, "target": Cpp },
 		{ "source": C, "target": Csharp },
 		{ "source": C, "target": ObjectiveC },
 		{ "source": C, "target": Java },
-
-		// Scala
-		{ "source": Java, "target": Scala },
+		{ "source": Cpp, "target": Rust },
 
 		// Dynamic
+		{ "source": Snobol, "target": Icon },
+		{ "source": Algol, "target": Icon },
 		{ "source": Scheme, "target": Javascript },
 		{ "source": Java, "target": Javascript },
 		{ "source": Perl, "target": Ruby },
@@ -109,6 +120,7 @@ var graphAll = {
 		// Logical
 		{ "source": Prolog, "target": Sql },
 		{ "source": Cobol, "target": Sql },
+		{ "source": Prolog, "target": Datalog },
 
 		{ "source": Flowmatic, "target": Cobol },
 

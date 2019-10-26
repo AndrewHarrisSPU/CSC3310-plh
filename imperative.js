@@ -31,7 +31,7 @@ Fortran = {
 },
 
 Flowmatic = {
-	"name": "FLOW-MATIC",
+	"name": "FLOW",
 	"date": 1957,
 	"dev": "Grace Hopper",
 	"org": "Remington Rand",
@@ -58,22 +58,7 @@ Cobol = {
 	"contributions":
 `Not greatly appreciated as a programming language, COBOL nonetheless remains essential to business today.`,
 	"comments":
-`80% of the world's financial transactions still run through COBOL at some point. "The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offense." - Djikstra`
-},
-
-Icon = {
-	"name": "Icon",
-	"date": 1977,
-	"tags": STYLE.imperative,
-	"dev": "Ralph Griswold",
-	"www": "https://www2.cs.arizona.edu/icon/",
-
-	"characteristics":
-`High-level language mainly focused on string management and textual pattern analysis. Not object-oriented.`,
-	"contributions":
-`Unicon, an object-oriented extension of Icon, is used today.`,
-	"comments":
-`Control structures based on success or failure of an expression, rather than boolean logic.`
+`80% of the world's financial transactions still run through COBOL at some point. Patterns of accessing data in indexed files in COBOL sit  adjacent to the development of relational databases historically. Still: "The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offense." - Djikstra`
 },
 
 Forth = {
@@ -94,7 +79,7 @@ Forth = {
 Basic = {
 	"name": "BASIC",
 	"date": 1964,
-	"tags": STYLE.special,
+	"tags": STYLE.imperative,
 	"dev": "John G. Kemeny, Thomas E. Kurtz",
 	"org": "Dartmouth College",
 

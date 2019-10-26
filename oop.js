@@ -14,20 +14,19 @@ var Simula = {
 `At a glance, Simula ("SIMUlation LAnguage") is an ALGOL-like structured language. However, while Smalltalk is often cited as the first object-oriented language, many histories suggest that Simula introduces key ideas: classes, subclasses, and virtual methods. Smalltalk merely insisted that everything is an object, and that objects only communicate through message passing. This is not a standard many familiar object-oriented languages meet. (Pop quiz: does C++ meet this standard? does JavaScript?)`
 },
 
-Smalltalk = {
-	"name": "Smalltalk",
-	"date": 1972,
+Ada = {
+	"name": "Ada",
+	"date": 1980,
 	"tags": STYLE.oop,
-	"dev": "Alan Kay",
-	"org": "Xerox",
-	"www": "https://www.instantiations.com/products/vasmalltalk/",
+	"org": "CII-Honeywell-Bull / U.S. DoD",
+	"www": "https://www.adacore.com",
 
 	"characteristics":
-`Smalltalk is composed entirely of objects. These objects send messages to other objects, triggering a response of some sort. Syntax is unusual, due to the use of messages rather than arithmetic logic expressions and control statements.`,
+`Large and complicated; as such, not good for programs where reliability was necessary. This also made it difficult to build a compiler for. Ada is an imperative language.`,
 	"contributions":
-`Smalltalk was the first language with full support for object oriented programming. This is a major impact, since most popular languages and design frameworks are based on object oriented principles. It was also the first language designed with the intention of working with graphical user interfaces built for non-programmers. The model-view-controller pattern was made for smalltalk.`,
+`Ada packages provided support for the use of data abstraction. It also introduced exception handling and concurrent tasks. Finally, Ada allowed for generic programs, which would handle data without specifying type until instantiation. Ada allows programmers to specify the range for scalar types (int, double, etc.) unlike C based programming languages.`,
 	"comments":
-`Was built with the intention of being used for programming personal computers, which did not exist at the time.`	
+`It’s often said that this program was mainly successful due to funding from the Department of Defense. It was required for any military program to be written in Ada from 1991 until 1997. People speculate that ending the “Ada Mandate” led to a drop in popularity of the language.`	
 },
 
 Eiffel = {
@@ -41,4 +40,36 @@ Eiffel = {
 ``,
 	"comments":
 ``
+},
+
+Go = {
+	"name": "Go",
+	"date": 2009,
+	"dev": "Robert Griesemer, Rob Pike, Ken Thompson",
+	"org": "Google",
+	"www": "https://golang.org/",
+	"tags": STYLE.oop,
+
+	"characteristics":
+`Multi-paraidigm`,
+	"contributions":
+`Brought average compile times for a cabal of ex-Bell Labs Googlers (including Ken Thompson) below the time of a coffee break`,
+	"comments":
+`In the minds of some critics, Go eschews decades of programming language research. In the minds of enthusiasts, it ignores bad ideas from decades of programming language research. For example, it drops inheretance in favor of interfaces, which can seem like a step back or step forward (it probably does work out better with respect to the Liskov Substition Principle, or the Robustness Principle). It is perhaps a well-executed language and ecosystem, more than a novel one.`
+},
+
+Rust = {
+	"name": "Rust",
+	"date": 2010,
+	"dev": "Graydon Hoare",
+	"org": "Mozilla",
+	"www": "http://www.rust-lang.org/",
+	"tags": STYLE.oop,
+
+	"characteristics":
+`Multi-paradigm`,
+	"contributions":
+`Borrow checker`,
+	"comments":
+`Unlike many other buzz-worthy recent languages, Rust does aspire to the performance of C or C++, while still being safer. This plays out in interesting ways. There is ostensibly no garbage collector, but optional reference counting is often used. A system of ownership and borrow checking tracks the (im)mutability of references, which makes some classes of bugs compile-time errors, but also makes some things difficult. Doubly linked lists, for example, are not easy because two links implies mean two mutable references.`
 }

@@ -1,21 +1,6 @@
 // C & OOP
-var	Ada = {
-	"name": "Ada",
-	"date": 1980,
-	"tags": STYLE.coop,
-	"org": "CII-Honeywell-Bull / U.S. DoD",
-	"www": "https://www.adacore.com",
-
-	"characteristics":
-`Large and complicated; as such, not good for programs where reliability was necessary. This also made it difficult to build a compiler for. Ada is an imperative language.`,
-	"contributions":
-`Ada packages provided support for the use of data abstraction. It also introduced exception handling and concurrent tasks. Finally, Ada allowed for generic programs, which would handle data without specifying type until instantiation. Ada allows programmers to specify the range for scalar types (int, double, etc.) unlike C based programming languages.`,
-	"comments":
-`It’s often said that this program was mainly successful due to funding from the Department of Defense. It was required for any military program to be written in Ada from 1991 until 1997. People speculate that ending the “Ada Mandate” led to a drop in popularity of the language.`	
-},
-
-ObjectiveC = {
-	"name": "Objective-C",
+var	ObjectiveC = {
+	"name": "Obj-C",
 	"date": 1984,
 	"tags": STYLE.coop,
 

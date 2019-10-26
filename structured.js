@@ -89,6 +89,20 @@ Pl1 = {
 `PL/1 was not a failure, but it had limitations. Due to the complexity of its specification, it was difficult to implement. While initially designed to be machine independent, over time it became mostly associated with IBM mainframes. Other vendors elected to stay with older languages or move to newer languages.`	
 },
 
+Icon = {
+	"name": "Icon",
+	"date": 1977,
+	"tags": STYLE.structured,
+	"dev": "Ralph Griswold",
+	"www": "https://www2.cs.arizona.edu/icon/",
+
+	"characteristics":
+`High-level language mainly focused on string management and textual pattern analysis. Not object-oriented.`,
+	"contributions":
+`Unicon, an object-oriented extension of Icon, is used today.`,
+	"comments":
+`Control structures based on success or failure of an expression, rather than boolean logic.`
+},
 
 Modula = {
 	"name": "Modula",

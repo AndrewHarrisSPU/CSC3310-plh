@@ -44,7 +44,7 @@ Scala = {
 	"contributions":
 `Scala demonstrates that more things are possible on the JVM that Java.`,
 	"comments":
-`Scala brings functional and type-inferential sytles to the JVM.`
+`Coinciding with an uptick in interest in functional languages, Scala merges Java classes and limited type inference.`
 
 },	Haskell = {
 	"name": "Haskell",

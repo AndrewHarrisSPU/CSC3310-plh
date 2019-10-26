@@ -32,7 +32,7 @@ var	Lisp = {
 },	
 
 Commonlisp = {
-	"name": "Common Lisp",
+	"name": "CLisp",
 	"date": 1984,
 	"dev": "(by committee)",
 	"org": "ANSI",
@@ -93,4 +93,20 @@ Logo = {
 `Many variations of logo have been built, mainly for educational purposes. Also, logo influenced the development of Smalltalk.`,
 	"comments":
 `Logo commands are typically used to direct the movement of a robot that’s connected to the program.`
+},
+
+Julia = {
+	"name": "Julia",
+	"date": 2012,
+	"tags": STYLE.functional,
+	"dev": "Jeff Bezanson, Alan Edelman, Stefan Karpinski, Viral B. Shah",
+	"org": "Julia Computing",
+	"www": "https://julialang.org/",
+
+	"characteristics":
+`Functional etc.`,
+	"contributions":
+`Polymorphism via multiple dispatch`,
+	"comments":
+`Julia aims for performant scientific computing from a relatively high-level language. It competes with MATLAB, Python, and R in this sense, but is a new and notable effort that claims to address performance more directly than others, who may be bolting a lot of relevant ideas on top of to existing languages.`
 }
