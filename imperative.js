@@ -5,6 +5,7 @@ var Ipl = {
 	"dev": "Allen Newell, Cliff Shaw, Herbert A. Simon",
 	"org": "RAND corporation, Carnegie Institute of Technology",
 	"tags": STYLE.imperative,
+	"www": "https://en.wikipedia.org/wiki/Information_Processing_Language",
 
 	"characteristics":
 `Assembly, Lists`,
@@ -21,6 +22,7 @@ Fortran = {
 	"dev": "John Backus",
 	"org": "IBM",
 	"tags": STYLE.imperative,
+	"www": "http://www.softwarepreservation.org/projects/FORTRAN/",
 
 	"characteristics":
 `Imperative`,
@@ -36,6 +38,7 @@ Flowmatic = {
 	"dev": "Grace Hopper",
 	"org": "Remington Rand",
 	"tags": STYLE.imperative,
+	"www": "https://en.wikipedia.org/wiki/FLOW-MATIC",
 
 	"characteristics":
 `imperative, English-like statements`,
@@ -49,9 +52,10 @@ Flowmatic = {
 Cobol = {
 	"name": "COBOL",
 	"date": 1960,
-	"dev": "(by committee)",
+	"dev": "(n/a)",
 	"org": "CODASYL",
 	"tags": STYLE.imperative,
+	"www": "https://open-cobol.sourceforge.io/doc/gnucobol.html",
 
 	"characteristics":
 `Imperative, English-like statements, business-oriented`,
@@ -82,6 +86,7 @@ Basic = {
 	"tags": STYLE.imperative,
 	"dev": "John G. Kemeny, Thomas E. Kurtz",
 	"org": "Dartmouth College",
+	"www": "http://www.quitebasic.com/",
 
 	"characteristics":
 `Very popular for use on microcomputers in the 1970s: smaller dialects could be used on computers with very low memory. Heavily based on Fortran. Very simple and easy to learn. Less easy to read, early versions were poorly suited to large-scale pronouns.`,

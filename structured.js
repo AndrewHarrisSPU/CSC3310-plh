@@ -20,6 +20,7 @@ Algol = {
 	"dev": "(by committee)",
 	"org": "ETH Zurich",
 	"tags": STYLE.structured,
+	"www": "https://www.masswerk.at/algol60/report.htm",
 	
 	"characteristics":
 `Imperative, Structured`,
@@ -35,6 +36,7 @@ Bcpl = {
 	"dev": "Martin Richards",
 	"org": "University of Cambridge",
 	"tags": STYLE.structured,
+	"www": "https://www.bell-labs.com/usr/dmr/www/bcpl.html",
 
 	"characteristics":
 `Structured`,
@@ -66,6 +68,7 @@ C = {
 	"dev": "Dennis Ritchie",
 	"org": "Bell Labs",
 	"tags": STYLE.structured,
+	"www": "https://archive.org/details/TheCProgrammingLanguageFirstEdition/page/n1",
 
 	"characteristics":
 `Structured`,
@@ -81,6 +84,7 @@ Pascal = {
 	"dev": "Niklaus Wirth",
 	"org": "ETH Zurich",	
 	"tags": STYLE.structured,
+	"www": "https://www.swissdelphicenter.ch/en/niklauswirth.php",
 
 	"characteristics":
 `Structured`,
@@ -96,6 +100,7 @@ Pl1 = {
 	"dev": "(by committee)",
 	"org": "IBM",
 	"tags": STYLE.structured,
+	"www": "http://bitsavers.trailing-edge.com/pdf/ibm/360/pli/C28-6571-1_PL_I_Language_Specifications_Jul65.pdf",
 
 	"characteristics":
 `Structured`,

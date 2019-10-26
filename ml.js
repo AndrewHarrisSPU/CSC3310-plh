@@ -3,7 +3,7 @@ var Sml = {
 	"name": "SML",
 	"date": 1983,
 	"tags": STYLE.ml,
-	"dev": "",
+	"dev": "(n/a)",
 	"org": "University of Edinburgh",
 	"www": "http://sml-family.org/",
 

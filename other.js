@@ -3,6 +3,7 @@ var Postscript = {
 	"name": "PS",
 	"date": 1982,
 	"tags": STYLE.other,
+	"dev": "(n/a)",
 	"org": "Adobe",
 	"www": "https://www-cdf.fnal.gov/offline/PostScript/BLUEBOOK.PDF",
 

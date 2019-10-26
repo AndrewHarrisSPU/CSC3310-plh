@@ -5,6 +5,7 @@ var Simula = {
 	"dev": "Ole-Johan Dahl, Kristen Nygaard",
 	"org": "Norwegian Computing Center",
 	"tags": STYLE.oop,
+	"www": "http://www.simula67.info",
 
 	"characteristics":
 `Structured, Object-Oriented`,
@@ -18,6 +19,7 @@ Ada = {
 	"name": "Ada",
 	"date": 1980,
 	"tags": STYLE.oop,
+	"dev": "(n/a)",
 	"org": "CII-Honeywell-Bull / U.S. DoD",
 	"www": "https://www.adacore.com",
 

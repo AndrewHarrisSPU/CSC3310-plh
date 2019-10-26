@@ -101,6 +101,8 @@ var graphAll = {
 		{ "source": C, "target": ObjectiveC },
 		{ "source": Cpp, "target": Java },
 		{ "source": Cpp, "target": Rust },
+		{ "source": Pascal, "target": Go },
+		{ "source": Cpp, "target": Go },
 
 		// Dynamic
 		{ "source": Snobol, "target": Icon },

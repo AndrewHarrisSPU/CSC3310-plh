@@ -6,7 +6,7 @@
 <style>
 	* {
 		font-family: sans-serif;
-		font-size: 14;
+		font-size: 11;
 	}
 
 	.svg {
@@ -17,30 +17,16 @@
 		text-align: center;
 	}
 
-	span.info {
-		font-style: normal;
-		font-size: 12px;
-	}
-
 	p {
-		margin-bottom: .5rem;
+		margin-bottom: .2rem;
 	}
 
-	#chart {
-		padding: 20px;
-	}
-
-	#infotron {
-		padding: 20px;
-		line-height: 1.2rem;
-	}
-
-	axis line{
-		stroke: #444;
+	.axis line{
+		stroke: #222;
 	}
 
 	.axis path{
-	  stroke: #444;
+		stroke: #222;
 	}
 
 	.axis text{
@@ -68,13 +54,11 @@
 <script src="graph.js"></script>
 
 <div align="center">
-	<svg id="svg" width="1000" height="500"
-  viewBox="0 0 1000 500"
-  preserveAspectRatio="xMidYMid meet"></svg>
+	<svg id="svg"></svg>
 </div>
 
-<div align="center">
-	<div id="infotron" style="width: 70rem; text-align: left"></div>
+<div align="center" style="margin: 0px;">
+	<div id="infotron" style="margin: 0px; width: 70rem; text-align: left"></div>
 </div>
 
 <!-- info box -->
@@ -120,7 +104,7 @@
 
 // CANVAS
 var width = 1000;
-var height = 500;
+var height = 400;
 
 
 var svg = d3.select( '#svg' )
@@ -128,11 +112,10 @@ var svg = d3.select( '#svg' )
 	.attr( 'height', height )
 	.attr( 'class', 'svg' )
 
-// CONTAINER
+// GRAPH
 var viewSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 var viewLevel = 0
 
-// GRAPH
 var graph = filterLane( graphAll, viewSet )
 
 function click( node ){
@@ -167,20 +150,20 @@ function draw( graph ){
 			draw( graph )
 		})
 
+	// CONTAINER
 	var container = svg
 		.append( 'g' )
 		.attr( 'width', width )
 		.attr( 'height', height )
 
 	// LAYOUT (via force-based physics simulation, yikes!)
-	if( viewLevel === 1 ){ repulsion = 40 }
-	else { repulsion = 22 }
+	var repulsion = 22
 
 	var simulation = d3.forceSimulation( graph.nodes )
 		.force( "link", d3.forceLink()
 			.id( d => { return d })
 			.links( graph.links )
-			.strength( 0.01 ))
+			.strength( 0.005 ))
 		.force( "charge", d3.forceManyBody() )
 		.force( "collision", d3.forceCollide().radius( repulsion ))
 		.force( 'x', d3.forceX().x( d => timeline( d )))
@@ -193,8 +176,8 @@ function draw( graph ){
 		.domain([
 			new Date( graph.years.min, 0, 1 ),
 			new Date( graph.years.max, 0, 1 )])
-		.range([ 50, width - 50 ])
-	var xAsix = container.append( 'g' )
+		.range([ 100, width - 110 ])
+	var xAxis = container.append( 'g' )
 		.attr( 'class', 'axis' )
 		.attr( 'transform',
 				'translate(0,' + ( height - 30 )  + ')')
@@ -212,8 +195,7 @@ function draw( graph ){
 	function lane( d ){
 		let range = graph.lanes.length + 2
 		let position = graph.lanes.indexOf( d.tags.lane ) + 1
-//		let positionRandom = ( Math.random() * range * .2 )
-		return 50 + ( position / range ) * ( height - 100 )
+		return 50 + ( position / range ) * ( height - 125 )
 	}
 
 	// LINK
@@ -297,16 +279,16 @@ function draw( graph ){
 		.append( 'text' )
 			.text( d => { return d.name })
 			.style( 'fill', 'white' )
-			.style( 'text-shadow', '1px 1px 2px black' )
+			.style( 'text-shadow', ' -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' )
 			.style( 'font-family', 'Arial' )
-			.style( 'font-size', 11 )
+			.style( 'font-size', 12 )
 			.style( 'font-style', 'bold' )
 			.style( 'text-anchor', 'middle' )
 			.style( 'pointer-events', 'none' )
 
 	function updateLabel( label ){
 		label.attr( "transform", d => {
-			return "translate(" + d.x + "," + d.y + ")";
+			return "translate(" + d.x + "," + ( d.y + 3 ) + ")";
 		})
 	}
 

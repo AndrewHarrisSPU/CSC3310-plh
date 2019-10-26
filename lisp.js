@@ -4,7 +4,7 @@ var	Lisp = {
 	"date": 1958,
 	"dev": "John McCarthy",
 	"org": "MIT",
-	"www": "",
+	"www": "http://www-formal.stanford.edu/jmc/history/lisp/lisp.html",
 	"tags": STYLE.functional,
 
 	"characteristics":
@@ -19,7 +19,7 @@ var	Lisp = {
 	"date": 1975,
 	"dev": "Guy L. Steele, Gerald Jay Sussman",
 	"org": "MIT",
-	"www": "",
+	"www": "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-4.html#%_toc_start",
 	"tags": STYLE.functional,
 
 	"characteristics":
@@ -36,7 +36,7 @@ Commonlisp = {
 	"date": 1984,
 	"dev": "(by committee)",
 	"org": "ANSI",
-	"www": "",
+	"www": "https://common-lisp.net",
 	"tags": STYLE.functional,
 
 	"characteristics":
