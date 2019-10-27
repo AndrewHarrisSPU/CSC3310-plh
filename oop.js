@@ -35,13 +35,16 @@ Eiffel = {
 	"name": "Eiffel",
 	"date": 1986,
 	"tags": STYLE.oop,
+	"dev": "Bertrand Meyer",
+	"org": "Eiffel Software",
+	"www": "https://www.eiffel.com",
 
 	"characteristics":
-``,
+`Object-Oriented`,
 	"contributions":
-``,
+`Many concepts that were first introduced in Eiffel are found in Java C# and other languages`,
 	"comments":
-``
+`Eiffel is designed to be simple and very readable while still being a powerful language`
 },
 
 Go = {

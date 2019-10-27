@@ -50,24 +50,30 @@ Scala = {
 	"name": "Haskell",
 	"date": 1990,
 	"tags": STYLE.ml,
+	"www": "https://www.haskell.org",
+	"dev": "(n/a)",
+	"org": "The Conference on Functional Programming Languages and Computer Architecture",
 
 	"characteristics":
-``,
+`Purely functional`,
 	"contributions":
-``,
+`Its use of lazy evaluation gave it capabilities that other programming languages might not have`,
 	"comments":
-``
+`While it is considered an elegant language, it isn’t used very widely because it doesn’t meet many of the needs of mainstream programming.`
 },
 
 Caml = {
 	"name": "Caml",
 	"date": 1985,
 	"tags": STYLE.ml,
+	"dev": "Ascander Suarez",
+	"org": "(n/a)",
+	"www": "https://ocaml.org",
 
 	"characteristics":
-``,
+`Functional`,
 	"contributions":
-``,
+`Led to Objective Caml (OCaml) which added support for object-oriented programming`,
 	"comments":
-``
+`The first implementation was Caml, then Caml Light, Caml Special Light and finally OCaml.`
 }

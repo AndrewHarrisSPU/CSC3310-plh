@@ -32,17 +32,47 @@ Csh = {
 Awk = {
 	"name": "AWK",
 	"date": 1977,
-	"tags": STYLE.unixTools
+	"tags": STYLE.unixTools,
+	"dev": "Alfred Aho, Peter Weingberger, Brian Kernighan (A,W,K)",
+	"org": "Bell Labs",
+	"www": "https://www.gnu.org/software/gawk/manual/gawk.html",
+
+	"characteristics":
+`No specific predecessors to AWK, although sh was the first scripting language`,
+	"contributions":
+`Developed in 1977. Wasn’t used as much once Perl was introduced (1987)`,
+	"comments":
+`AWK is a scripting language used for processing text files.`
 },
 
 Bash = {
 	"name": "Bash",
 	"date": 1989,
-	"tags": STYLE.unixTools
+	"tags": STYLE.unixTools,
+	"dev": "Brian Fox",
+	"org": "GNU",
+	"www": "https://www.gnu.org/software/bash",
+
+	"characteristics":
+`CL language`,
+	"contributions":
+`It has been used as the default login shell for Linux, and in some versions of macOS`,
+	"comments":
+`Its name is an acronym for “the Bourne Again Shell” because it replaced the Bourne Shell (sh)`
 },
 
 Ksh = {
 	"name": "ksh",
 	"date": 1983,
-	"tags": STYLE.unixTools
+	"tags": STYLE.unixTools,
+	"dev": "David Korn",
+	"org": "Bell Labs",
+	"www": "http://www.kornshell.org",
+
+	"characteristics":
+`CL language`,
+	"contributions":
+`It was one of the most powerful scripting languages when it was released.`,
+	"comments":
+`ksh seems to have been a stepping-stone that helped other scripting languages come about.`
 }

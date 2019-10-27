@@ -29,10 +29,4 @@ Tex = {
 `Turing-complete typesetting`,
 	"comments":
 `Version numbers asymptotically approach π. Offers robust typesetting, notably for mathematical formulae. If you find an error in TeX, you may be in line for a <a href="https://en.wikipedia.org/wiki/Knuth_reward_check">reward</a>`
-},
-
-Visualbasic = {
-	"name": "VB",
-	"date": 1991,
-	"tags": STYLE.other,	
 }

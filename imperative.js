@@ -100,6 +100,7 @@ Rpg = {
 	"name": "RPG",
 	"date": 1959,
 	"tags": STYLE.imperative,
+	"dev": "(n/a)",
 	"org": "IBM",
 	"www": "https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_72/rzasc/langovvw.htm",
 
@@ -109,4 +110,20 @@ Rpg = {
 `One of the first high-level programming languages, helped people transition from punched card to computers.`,
 	"comments":
 `Was designed to feel similar to punched card processing, but as the language has evolved it has become less similar to that.`
+},
+
+Visualbasic = {
+	"name": "VB",
+	"date": 1991,
+	"tags": STYLE.imperative,
+	"dev": "(n/a)",
+	"org": "Microsoft",
+	"www": "https://docs.microsoft.com/en-us/dotnet/visual-basic/",
+
+	"characteristics":
+`Event-driven`,
+	"contributions":
+`Provided a simple way of building graphical user interfaces. Was used for various Windows applications in the 1990s`,
+	"comments":
+	`When .NET appeared, a new Version of Visual Basic also appeared: Visual Basic.NET. This version of Visual Basic fully supported object-oriented programming`
 }
