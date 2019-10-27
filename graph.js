@@ -37,6 +37,8 @@ var graphAll = {
 	],
 	"links": [
 		// imperatives
+		{ "source": Ipl, "target": Fortran },
+		{ "source": Rpg, "target": Cobol },
 		{ "source": Flowmatic, "target": Cobol },		
 		{ "source": Fortran, "target": Algol },
 		{ "source": Algol, "target": C },
@@ -47,6 +49,7 @@ var graphAll = {
 		{ "source": Algol, "target": Basic },
 		{ "source": Fortran, "target": Basic },
 		{ "source": Pl1, "target": Plm },
+		{ "source": Basic, "target": Visualbasic },
 
 		// ML
 		{ "source": Pascal, "target": Ml },
@@ -62,10 +65,12 @@ var graphAll = {
 		{ "source": Algol, "target": Simula },
 		{ "source": Simula, "target": Smalltalk },
 		{ "source": Smalltalk, "target": Ruby },
+		{ "source": Smalltalk, "target": ObjectiveC },
 		{ "source": Simula, "target": ObjectiveC },
 		{ "source": ObjectiveC, "target": Swift },		
 		{ "source": Simula, "target": Cpp },
 		{ "source": Cpp, "target": Csharp },
+		{ "source": Java, "target": Csharp },
 
 		// Lisps
 		{ "source": Lisp, "target": Scheme },
@@ -103,6 +108,8 @@ var graphAll = {
 		{ "source": Cpp, "target": Rust },
 		{ "source": Pascal, "target": Go },
 		{ "source": Cpp, "target": Go },
+		{ "source": C, "target": Python },
+		{ "source": C, "target": Tcl },		
 
 		// Dynamic
 		{ "source": Snobol, "target": Icon },
