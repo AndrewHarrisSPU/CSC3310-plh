@@ -115,6 +115,9 @@ var svg = d3.select( '#svg' )
 // GRAPH
 var viewSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 var viewLevel = 0
+var viewLane = null
+var viewNode = null
+var viewTag = "Languages"
 
 var graph = filterLane( graphAll, viewSet )
 
@@ -122,15 +125,20 @@ function click( node ){
 	d3.event.stopPropagation()	
 	svg.selectAll( '*' ).remove()
 
-	if( viewLevel === 0 ){
-		graph = filterLane( graphAll, [ node.tags.lane ])		
-		viewLevel = 1
-	} else if( viewLevel === 1 ){
+	viewTag = "Languages"
+
+	if( node.tags.lane != viewLane ){
+		graph = filterLane( graphAll, [ node.tags.lane ])
+		viewLane = node.tags.lane		
+		viewTag += " -> " + node.tags.label
+	} else if( node != viewNode ){
 		graph = filterNode( graphAll, node )
-		viewLevel = 2
+		viewNode = node
+		viewTag += " -> " + node.tags.label + " -> " + node.name
 	} else {
 		graph = filterLane( graphAll, viewSet )
-		viewLevel = 0
+		viewLane = null
+		viewNode = null
 	}
 
 	draw( graph )
@@ -144,8 +152,10 @@ function draw( graph ){
 		.attr( 'width', width )
 		.attr( 'height', height )
 		.on( 'click', ()=> {
+			viewTag = "Languages"			
 			graph = filterLane( graphAll, viewSet )
-			viewLevel = 0
+			viewLane = null
+			viewNode = null
 			draw( graph )
 		})
 
@@ -197,6 +207,15 @@ function draw( graph ){
 		let position = graph.lanes.indexOf( d.tags.lane ) + 1
 		return 50 + ( position / range ) * ( height - 125 )
 	}
+
+	// View Tag
+	container.append( 'text' )
+		.attr( 'class', 'axis' )
+    	.attr( 'x', 20 )
+    	.attr( 'y', 20 )
+    	.text( viewTag )
+    	.style( 'font-size', '11' )
+    	.style( 'fill', 'white' )
 
 	// LINK
 	var links = container.append( 'g' ).attr( 'class', 'links' )

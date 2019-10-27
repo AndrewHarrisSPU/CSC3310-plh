@@ -6,52 +6,52 @@ const STYLE = Object.freeze({
 	},	
 	logical: {
 		lane: 1,
-		label: "logical",
+		label: "Declarative",
 		color: "#a6e22e"
 	},
 	ml: {
 		lane: 2,
-		label: "inferential typing",
+		label: "Inferential Typing",
 		color: "#66efad"
 	},	
 	functional: {
 		lane: 3,
-		label: "functional",
+		label: "Functional",
 		color: "#66d8ef"
 	},
 	dynamic: {
 		lane: 4,
-		label: "dynamic",
+		label: "Dynamic",
 		color: "#ad81ff"
 	},
 	other: {
 		lane: 5,
-		label: "other",
+		label: "Typesetting",
 		color: "#6c498f"
 	},
 	imperative: {
 		lane: 6,
-		label: "imperative",
+		label: "Imperative",
 		color: "#f92439"
 	},
 	coop: {
 		lane: 7,
-		label: "C -> object oriented",
+		label: "C-OOP",
 		color: "#f92673"
 	},
 	structured: {
 		lane: 8,
-		label: "structured",
+		label: "Structured",
 		color: "#f94f24"
 	},
 	oop: {
 		lane: 9,
-		label: "object oriented",
+		label: "OOP",
 		color: "#fd971f"
 	},
 	unixTools: {
 		lane: 10,
-		label: "Unix-flavored",
+		label: "Unix Kit",
 		color: "#edd100"
 	}
 });

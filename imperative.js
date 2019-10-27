@@ -70,6 +70,7 @@ Forth = {
 	"date": 1970,
 	"tags": STYLE.imperative,
 	"dev": "Charles Moore",
+	"org": "(n/a)",
 	"www": "https://www.forth.com/forth/",
 
 	"characteristics":
